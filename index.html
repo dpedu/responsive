@@ -1,0 +1,81 @@
+<!--
+	
+	
+	Useful tools:
+		- http://pxtoem.com/ - Convert pixels to em and back
+		- http://designmodo.com/responsive-test/ - Device testing
+		- http://imageoptim.com/ - Strip unnecessary data from images
+		- http://www.spritecow.com/ - Ease of using sprite sheets
+	
+-->
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Responsive Test</title>
+	<meta name="description" content="An example template for Responsive websites." />
+	<link rel="shortcut icon" href="img/icon.png" />
+	
+	<!-- MOBILE METATAGS -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="MobileOptimized" content="320">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!-- ENABLE CLEARTYPE -->
+	<meta http-equiv="cleartype" content="on">
+	<!-- DISABLE iOS AUTOMATIC TELEPHONE LINK CONVERTING -->
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- APPLE DEVICE ICONS -->
+	<!-- For 3rd gen Retina display: -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144-precomposed.png">
+	<!-- For iPhone, Retina display: -->
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
+	<!-- For None-Retina iPad display: -->
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
+	<!-- Older Devices: -->
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+	
+	<!-- JQUERY -->
+	<script type="text/javascript" src="libs/jquery-1.9.1.min.js"></script>
+	
+	<!-- LESS CSS - Enchanced Stylesheet Processor - In drupal, this should be removed in favor of the LESS CSS Module. - http://lesscss.org/ -->
+	<script type="text/javascript" src="libs/less-1.3.3.min.js"></script>
+	<!-- FIT VIDS - Resize Youtube/Vimeo videos automatically depending on screen width - http://fitvidsjs.com/ -->
+	<script type="text/javascript" src="libs/jquery.fitvids.js"></script>
+	<!-- Modernizr - On the fly testing for browser features - http://modernizr.com/ - includes yepnope.js - http://yepnopejs.com/ -->
+	<script type="text/javascript" src="libs/modernizr-full.min.js"></script>
+	<!-- FASTCLICK - Speed up taps on touchscreen - https://github.com/ftlabs/fastclick -->
+	<script type="text/javascript" src="libs/fastclick.js"></script>
+	<!-- STICKY -  For sticky menus depending on scrolling - https://github.com/garand/sticky -->
+	<script type="text/javascript" src="libs/jquery.sticky.js"></script>
+	<!-- BREAKPOINTS - Execute javascript when the current breakpoint changes - https://github.com/xoxco/breakpoints -->
+	<script type="text/javascript" src="libs/breakpoints.js"></script>
+	<!-- SELECTIVIZR - Enable CSS3 selectors for older browsers (IE) - http://selectivizr.com/ -->
+	<!--[if(lte IE 8)]>
+		<script type="text/javascript" src="libs/selectivizr-min.js"></script>
+	<![endif]-->
+	
+	<!-- Main Stylesheet -->
+	<link rel="stylesheet/less" type="text/css"href="css/main.less" />
+</head>
+<body>
+	<script type="text/javascript">
+		/* iOS boolean - for iOS device specifics later */
+		var ua = navigator.userAgent;
+		var iOS = /iPad/i.test(ua) || /iPhone/i.test(ua) || /iPod/i.test(ua);
+		
+		// Load Respond.js, only for devices that DO NOT SUPPORT media queries - https://github.com/scottjehl/Respond
+		yepnope({
+			test : Modernizr.mq('(min-width:0px)'),
+			nope : ['libs/respond.min.js']
+		});
+		
+		// Need to load a script depending on screen size?
+		yepnope({
+			test : (Modernizr.mq('(min-width:1024px)') || iOS ),
+			yep : ['scripts/screen-1024.js']
+		});
+	</script>
+</body>
+</html>
