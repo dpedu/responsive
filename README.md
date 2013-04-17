@@ -12,3 +12,4 @@ My template for responsive web development
 * Sticky
 * Breakpoints
 * Selectivizr
+* Respond
